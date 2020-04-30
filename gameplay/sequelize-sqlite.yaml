@@ -1,0 +1,14 @@
+dbname: adventure-capitalist-gameplay
+username: gc_adcap
+password: gc_ac
+params:
+  dialect: sqlite
+  storage: ./database/gameplay-sequelize.sqlite3
+  operatorAliases:
+    $eq: Op.eq
+    $ne: Op.ne
+    $gte: Op.gte
+    $gt: Op.gt
+    $lte: Op.lte
+    $lt: Op.lt
+    $or: Op.or

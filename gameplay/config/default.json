@@ -1,0 +1,46 @@
+{
+    "port": "2020",
+    "host": {
+        "client": "process.env.CLIENT_ORIGIN_HOST || http://localhost:3000",
+        "gameplay": "process.env.ADVENTURE_CAPITALIST_HOST || http://localhost:2020",
+        "users": "process.env.USER_MICROSERVICE_HOST || http://localhost:5050"
+    },
+    "routes": {
+        "auth": "/auth",
+        "user": {
+            "register": "/users/register",
+            "login": "/users/login",
+            "find": "/users/find",
+            "checkPassword": "/users/check-password",
+            "findById": "/users/findby",
+            "destroy": "/users/destroy",
+            "updateStatus": "/users/update-status",
+            "saveCapital" : "/users/save/capital",
+            "saveLastSeen": "/users/save/last-seen",
+            "getAwayTime": "/users/get/away-time",
+            "getList": "/users/get/list"
+        },
+        "business": {
+            "create": "/businesses/create",
+            "buy": "/businesses/buy",
+            "acquired": "/businesses/acquired",
+            "putManager": "/businesses/put-manager",
+            "applyUpgrade": "/businesses/apply-upgrade",
+            "getOfflineReport": "/businesses/get/offline-report/:log_date",
+            "getList": "/businesses/get/list"
+        },
+        "manager": {
+            "create": "/managers/create",
+            "hire": "/managers/hire/:id",
+            "getList": "/managers/get/list"
+        },
+        "upgrade": {
+            "create": "/upgrades/create",
+            "apply": "/upgrades/apply/:id",
+            "getList": "/upgrades/get/list"
+        }
+    },
+    "auth": {
+        "jwtToken": "gcadcapgame"
+    }
+}

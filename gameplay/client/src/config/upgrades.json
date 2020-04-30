@@ -1,0 +1,102 @@
+[
+    {
+        "name": "Little Umbrellas",
+        "title": "little_umbrellas",
+        "business_type": "Lemonade Stand",
+        "profit": "Lemonade Stand profit x3",
+        "cost": 250000.00,
+        "userid": null,
+        "order": 1
+    },
+    {
+        "name": "Funny Pages",
+        "title": "funny_pages",
+        "business_type": "Newspaper Delivery",
+        "profit": "Newspaper Delivery profit x3",
+        "cost": 500000.00, 
+        "userid": null,
+        "order": 2
+    },
+    {
+        "name": "Drive Through Wash",
+        "title": "drive_through_wash",
+        "business_type": "Car Wash",
+        "profit": "Car Wash profit x3",
+        "cost": 1000000.00,
+        "userid": null,
+        "order": 3
+    },
+    {
+        "name": "Robot Cars",
+        "title": "robot_cars",
+        "business_type": "Pizza Delivery",
+        "profit": "Pizza Delivery profit x3",
+        "cost": 5000000.00,
+        "userid": null,
+        "order": 4
+    },
+    {
+        "name": "Pre-packaged Pastries",
+        "title": "pre_packaged_pastries",
+        "business_type": "Donut Shop",
+        "profit": "Donut Shop profit x3",
+        "cost": 10000000.00,
+        "userid": null,
+        "order": 5
+    },
+    {
+        "name": "Shrimp Satellite",
+        "title": "shrimp_satellite",
+        "business_type": "Shrimp Boat",
+        "profit": "Shrimp Boat profit x3",
+        "cost": 25000000.00,
+        "userid": null,
+        "order": 6
+    },
+    {
+        "name": "Team Jet",
+        "title": "team_jet",
+        "business_type": "Hockey Team",
+        "profit": "Hockey Team profit x3",
+        "cost": 500000000.00,
+        "userid": null,
+        "order": 7
+    },
+    {
+        
+        "name": "3D Cameras",
+        "title": "3d_cameras",
+        "business_type": "Movie Studio",
+        "profit": "Movie Studio profit x3",
+        "cost": 10000000000.00,
+        "userid": null,
+        "order": 8
+    },
+    {
+        "name": "Gold Plated Vaults",
+        "title": "gold_plated_vaults",
+        "business_type": "Bank",
+        "profit": "Bank profit x3",
+        "cost": 50000000000.00,
+        "userid": null,
+        "order": 9
+    },
+    {
+        "userid": null,
+        "name": "Spill Proof Tankers",
+        "title": "spill_proof_tankers",
+        "business_type": "Oil Company",
+        "profit": "Oil Campany profit x3",
+        "cost": 250000000000.00,
+        "order": 10
+    },
+    {
+        "name": "Monopoly",
+        "title": "monopoly",
+        "business_type": "Monopoly All",
+        "profit": "All profits x3",
+        "cost": null,
+        "userid": null,
+        "order": 11
+    }
+]
