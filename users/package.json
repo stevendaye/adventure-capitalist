@@ -1,0 +1,40 @@
+{
+  "name": "users",
+  "version": "1.0.0",
+  "description": " User Microservice for the Adventure Capitalist Game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "SEQUELIZE_CONNECT=sequelize-sqlite.yaml babel-node server.js",
+    "server": "cross-env DEBUG=adventure-capitalist-users:* PORT=5050 SEQUELIZE_CONNECT=sequelize-sqlite.yaml nodemon --exec babel-node server.js",
+    "user-create": "cross-env DEBUG=adventure-capitalist-users:* PORT=5050 nodemon --exec babel-node scripts/users-create.js",
+    "user-read": "cross-env DEBUG=adventure-capitalist-users:* PORT=5050 nodemon --exec babel-node scripts/users-read.js dev.stevendaye@yahoo.com",
+    "user-delete": "cross-env DEBUG=adventure-capitalist-users:* PORT=5050 nodemon --exec babel-node scripts/users-delete.js dev.stevendaye@yahoo.com",
+    "user-list": "cross-env DEBUG=adventure-capitalist-users:* PORT=5050 nodemon --exec babel-node scripts/users-list.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "bcrypt": "^4.0.1",
+    "config": "^3.3.1",
+    "fs-extra": "^9.0.0",
+    "gravatar": "^1.8.0",
+    "js-yaml": "^3.13.1",
+    "jsonwebtoken": "^8.5.1",
+    "restify": "^8.5.1",
+    "restify-errors": "^8.0.2",
+    "sequelize": "^5.21.6",
+    "sqlite3": "^4.1.1",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "debug": "^4.1.1",
+    "nodemon": "^2.0.2",
+    "restify-clients": "^2.6.9"
+  }
+}
