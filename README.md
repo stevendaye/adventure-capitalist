@@ -3,7 +3,7 @@ Adventure Capitalist is an idle business sim-game. The basic idea behind the gam
 
 In order to automate this, you can hire a manager who can run the business for you, so you don’t have to click manually anymore. Then you can upgrade the business and gain even more money.
 
-The version of the game implemented here is a clone of the Adventure Capitalist game. So, this is a basic gameplay with upgrading businesses and hiring managers. The game can be accessed online at https://adventure-capitalist.herokuapp.com, while the codebase can also be accessed at https://github.com/stevendaye/adventure-capitalist.
+The version of the game implemented here is a clone of the Adventure Capitalist game. So, this is a basic gameplay with upgrading businesses and hiring managers. The game can be accessed online at https://adventure-capitalist-game.herokuapp.com, while the codebase can also be accessed at https://github.com/stevendaye/adventure-capitalist.
 
 ![Alt text](gameplay/client/src/assets/vendor/local/adcap_welcome_page.jpg "Adventure Capitalist - Welcome Page")
 
@@ -49,7 +49,7 @@ Our sim-game use a data flow that is rather starighforward, for better understan
 
 
 ## How To Run The Sim-Game
-The sim-game is deployed on heroku and therefore available at https://adventure-capitalist.herokuapp.com. However, to run it in local, follow bellow steps.
+The sim-game is deployed on heroku and therefore available at https://adventure-capitalist-game.herokuapp.com. However, to run it in local, follow bellow steps.
 
 First make a clone of the project:
 - `git clone https://github.com/stevendaye/adventure-capitalist`
