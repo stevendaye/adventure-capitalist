@@ -5,6 +5,7 @@ In order to automate this, you can hire a manager who can run the business for y
 
 The version of the game implemented here is a clone of the Adventure Capitalist game. So, this is a basic gameplay with upgrading businesses and hiring managers. The game can be accessed online at https://adventure-capitalist.herokuapp.com, while the codebase can also be accessed at https://github.com/stevendaye/adventure-capitalist.
 
+![Alt text](gameplay/client/src/assets/vendor/local/adcap_welcome_page.jpg "Adventure Capitalist - Welcome Page")
 
 ## The Problem
 The sim-game requires that a user wins capital after purchasing a business. But to gain the capital, he must first click the busines and wait for some time, then he can try again. He must have the choice to choose from many business types. However, to purchase a business, he must have the required capital for the business cost. The action of clicking must be done repeatedly to gain capital. To automate this, the user will have to hire a manager that will automatically perform the clicking action.
@@ -24,9 +25,9 @@ From the angle this problem is analyzed, the way we approach it will be FULL STA
 - *The Gameplay Service*, will be a standalone server that handles both the frontend and backend. It will take care of creating new businesses, managers and upgrades for every authenticated new user. To succeed, it will collect the user's **business status**(which is set to **true** or **false**) from the **User-Auth-Server** to determine which actions to execute. In case, the **User-Auth-Service** confirms the user is new and has no business started, the service will then configure the gameplay by creating new businesses, managers and upgrades. Those configurations come from JSON configuration files which are well thought and structured beforehand. They are businesses.json, managers.json and ugrades.json. These are seen like structured tables that pass starting point data to the backend to initialize the game environment for every new user. But, in case the **User-Auth-Server** indicates that it is a registered user that already started a business, the service will then just retrieve all the user'previous activities. Communications between these two microservices will be through an api. Every time the **Gameplay Service** queries the **User-Auth-Server**, it will first have to authenticate itself before accessing any user information. This service will laverage SQLite3 to persist data. Every data retrieved from the backend will be stored in a Sophisticated State Management System which will be consumed by a View Library that interacts with the user.
 
 - Understanding some of the **Math rules and principles** behind the sim-game is crucial. Therefore, to comprehend how things work under the hood in order to implement a perfect clone, the following ressources will prove to be handy:
-- https://slimmmo.github.io/
-- https://gameanalytics.com/blog/idle-game-mathematics.html
-- https://adventure-capitalist.fandom.com/wiki/AdVenture_Capitalist_Wiki
+   * https://slimmmo.github.io/
+   * https://gameanalytics.com/blog/idle-game-mathematics.html
+   * https://adventure-capitalist.fandom.com/wiki/AdVenture_Capitalist_Wiki
 
 
 ## Expanding The Solution Data Flow
@@ -92,28 +93,26 @@ When a user buys a business, here is what happens under the hood:
  4- The `initial_productivity` is multiplied by the `number_owned` to produce the `next_productivity`
  4- The `initial_cost` of the business is finally deducted from the user's **capital**
 
- `number_owned = number_owned += multiplier`
- `current_revenue = current_revenue += (initial_revenue * multiplier)`
- `next_cost = next_cost * coefficient`
+ `number_owned = number_owned += multiplier`  
+ `current_revenue = current_revenue += (initial_revenue * multiplier)`  
+ `next_cost = next_cost * coefficient`  
  `next_productivity = initial_productivity * number_owned`
 
 ### Upgrading A business
 When you upgrade a business, the business profit is boosted three times. Here is what happens under the hood:
-
  1- The `initial_revenue` is multiplied by 3
  2- The `current_revenue` is multiplied by 3
  3- The `next_cost` is multiplied by 3
  4- The `initial_productivity` is finally multiplied by 3 as well.
  5- The cost of the upgrade is deducted from the user's **capital**.
 
- `initial_revenue = initial_revenue * 3`
- `current_revenue = current_revenue * 3` 
- `next_cost = next_cost * 3`
+ `initial_revenue = initial_revenue * 3`  
+ `current_revenue = current_revenue * 3`  
+ `next_cost = next_cost * 3`  
  `initial_productivity = initial_productivity * 3`
 
 ### Hiring A manager
 When you hire a manager, it is rather straightforward.
-
  1- The `current_revenue` is added to the user's **capital** automatically after every `intitial_time`(in seconds)
  2- The cost of the manager is deducted from the user's **capital**.
 
@@ -264,20 +263,20 @@ On the other hand, the sim-game has been tested successfully on all browsers exc
 ## What May Have Been Done If Given Additional Time On The Project
 If given additional time on the project, we would start by fixing the above time and capital format. Apart from this, there are things we would like to do differently but also add. They are:
 
- - _Change the databse to MySQL_: Using SQLite3 is fine and very portable. But it cannot really be used at scale, as it has several limits. As said above, SQLite3 was used for time and financial constraints. Maybe using MongoDB is jsut fine too but MySQL would be a great start to scale our sim-game database to the bigger audience.
+ - _**Change the databse to MySQL**_: Using SQLite3 is fine and very portable. But it cannot really be used at scale, as it has several limits. As said above, SQLite3 was used for time and financial constraints. Maybe using MongoDB is jsut fine too but MySQL would be a great start to scale our sim-game database to the bigger audience.
  
- - _Deploy the application on DigiatOcean(DO)_: We would have prefered to deploy the sim-game on DO. This is a great Cloud Hosting Platform which will give us the tools needed to esily scale our game. So, buying a domain name and setting SSL Security to encrypt the link between the client and the server will be a great start to give our sim game an official look that can be trusted by the audience.
+ - _**Deploy the application on DigiatOcean(DO)**_: We would have prefered to deploy the sim-game on DO. This is a great Cloud Hosting Platform which will give us the tools needed to esily scale our game. So, buying a domain name and setting SSL Security to encrypt the link between the client and the server will be a great start to give our sim game an official look that can be trusted by the audience.
 
- - _Use TypeScript instead of JavaScript/ES6_: It was really fun and interesting using ES6+. But it has its limit. For the reason that JavaScript is not a typed language, it can be tricky to use it on very large projects. Moreover, we were using _**PropTypes**_ in React to enforce the type of data we are expecting. Meanwhile, Using *TypeScript* would have made things much more interesting, giving us the ability to laverage its features to have a product that scales better.
+ - _**Use TypeScript instead of JavaScript/ES6**_: It was really fun and interesting using ES6+. But it has its limit. For the reason that JavaScript is not a typed language, it can be tricky to use it on very large projects. Moreover, we were using _**PropTypes**_ in React to enforce the type of data we are expecting. Meanwhile, Using *TypeScript* would have made things much more interesting, giving us the ability to laverage its features to have a product that scales better.
 
- - _Dokerize the sim-game_:  Using Docker in our sim-game would make it more robust and secured. For games that must be used by a very large audience, we must think in terms of scalability and security. With Docker, instead of having two mocroservices, we would rather have 2 networks with 4 microservices. The *AuthNet* that handles 1 microservice running the **User-Auth-Service** and 1 microservice running its database, and the *FrontNet* that handles 1 microservice running the **Gameplay Service(backend)** and 1 microservice running its database. For the two databases, we will be using MySQL Docker Images. As for the 2 networks, they will be comminicating through a Docker Bridge Network, all secured.
+ - _**Dokerize the sim-game**_:  Using Docker in our sim-game would make it more robust and secured. For games that must be used by a very large audience, we must think in terms of scalability and security. With Docker, instead of having two mocroservices, we would rather have 2 networks with 4 microservices. The *AuthNet* that handles 1 microservice running the **User-Auth-Service** and 1 microservice running its database, and the *FrontNet* that handles 1 microservice running the **Gameplay Service(backend)** and 1 microservice running its database. For the two databases, we will be using MySQL Docker Images. As for the 2 networks, they will be comminicating through a Docker Bridge Network, all secured.
 
-- _Add additional features_: It would be interesting to work on additional features of the Adventure Capitalist sim-game. Adding more **Cash Upgrades**, **Angels Upgrades**, **Gold Upgrades**, **Managers** and **Investors** would be very fun. However these are some personal features that we think we can bring in the sim-game:
- * _List the top 25 users/palyers and their capital in real time_: It would be fun to introduce a new feature that would allow users to see the progress of the top 25 players. Every user will be able to see the capital of those top 25 in real time. From there, any user can request for a trade in orther to exchange something to have more money added to his own capital.
- * _Invest money in stock exchange_: It would add more fun if we can introduce another feature that would allow users to invest some of their capital into stock exchange. This will help them gain more capital if what they invested in raises, but make them loose money if it drops.
+- _**Add additional features**_: It would be interesting to work on additional features of the Adventure Capitalist sim-game. Adding more **Cash Upgrades**, **Angels Upgrades**, **Gold Upgrades**, **Managers** and **Investors** would be very fun. However these are some personal features that we think we can bring in the sim-game:
+ * _*List the top 25 users/palyers and their capital in real time*_: It would be fun to introduce a new feature that would allow users to see the progress of the top 25 players. Every user will be able to see the capital of those top 25 in real time. From there, any user can request for a trade in orther to exchange something to have more money added to his own capital.
+ * _*Invest money in stock exchange*_: It would add more fun if we can introduce another feature that would allow users to invest some of their capital into stock exchange. This will help them gain more capital if what they invested in raises, but make them loose money if it drops.
 
-- _Develop a mobile bersion of the sim-game_: Currently, the sim-game can only be played on large screens. In other to make it more user-friendly, we would like to develop a mobile version of the game. This will then be made responsive to be played on all sorts of screens. The way the sim-game was developed is in such a manner that if we were to work on it later, it would be easy and straightforward. That's the very reason why we used **Flexbox** in the first place.
+- _**Develop a mobile bersion of the sim-game**_: Currently, the sim-game can only be played on large screens. In other to make it more user-friendly, we would like to develop a mobile version of the game. This will then be made responsive to be played on all sorts of screens. The way the sim-game was developed is in such a manner that if we were to work on it later, it would be easy and straightforward. That's the very reason why we used **Flexbox** in the first place.
 
-- _Write unit and integration tests for the application_: In every software development lifecycle, tests are written to ensure the application behaves the way we expect and spot bugs at very early stage. Some end-to-end API tests were covered with Postam for the sim-game. But it is safer and best practice to write unit and integration tests that covers the whole application. So we would start testing all our components with *JEST*, then some functionalities with *Enzyme*. We would use *Mocha* to test our controllers, and models in the backend. If given time, we would also automate our test with *Puppeteer*.
+- _**Write unit and integration tests for the application**_: In every software development lifecycle, tests are written to ensure the application behaves the way we expect and spot bugs at very early stage. Some end-to-end API tests were covered with Postam for the sim-game. But it is safer and best practice to write unit and integration tests that covers the whole application. So we would start testing all our components with *JEST*, then some functionalities with *Enzyme*. We would use *Mocha* to test our controllers, and models in the backend. If given time, we would also automate our test with *Puppeteer*.
 
-- _Make animations and give the art illustrations a better look_: The illustrations drawn are fine. But it may be missing more professional touch to be of very high quality. It would be fantastic to make it look more like the ones we see on the **Game Closure** website. They are neater, and very catchy. Also, why not give it a 3D feel and make some animations as we would see in games?
+- _**Make animations and give the art illustrations a better look**_: The illustrations drawn are fine. But it may be missing more professional touch to be of very high quality. It would be fantastic to make it look more like the ones we see on the **Game Closure** website. They are neater, and very catchy. Also, why not give it a 3D feel and make some animations as we would see in games?
