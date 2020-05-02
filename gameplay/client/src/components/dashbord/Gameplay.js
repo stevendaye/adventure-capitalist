@@ -104,6 +104,10 @@ class Gameplay extends Component {
                 backgroundSoundEffect && backgroundSoundEffect.play();
             }
         }
+
+        if (nextProps.report.offline !== this.props.report.offline) {
+            this.onAddCapital(nextProps.report.offline.capital);
+        }
     }
 
     // @desc On buy, manager hire/business upgrade, deduct the cost from current capital
@@ -151,7 +155,7 @@ class Gameplay extends Component {
                     />
                     {
                         Object.keys(offline).length > 0 && offline.isRunByManagers &&
-                        <Report onAddCapital = {this.onAddCapital}/>
+                        <Report show = "block" />
                     }
                     <p className = "adcap-name">Adventure Capitalist</p>
                     <div className = "playground">

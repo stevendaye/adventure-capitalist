@@ -15,7 +15,7 @@ const getAccurateAwayTime =  (awayTime, lastSeen) => {
     const seconds = time.setTime(awayTime) && time.getSeconds();
     
     if (days >= 1) {
-        accurateTime = `${days} day(s) ${hours} hours ${minutes} minutes
+        accurateTime = `${Math.floor(days)} day(s) ${hours} hours ${minutes} minutes
         and ${seconds} seconds`
     } else {
         accurateTime = `${hours} hour(s) ${minutes} minute(s) and ${seconds} seconds`
@@ -31,9 +31,8 @@ class Report extends Component {
     }
 
     componentDidMount() {
-        const  { offline } = this.props.report;
-        Object.keys(offline).length > 0 &&
-        this.props.onAddCapital(offline.capital);
+        const  { show } = this.props;
+        this.offline.style.display = show;
     }
 
     onCloseReport() {
@@ -54,7 +53,11 @@ class Report extends Component {
 
         return (
             <Fragment>
-                <div className = "offline">
+                <div
+                    className = "offline"
+                    id = "report"
+                    ref = { offline => this.offline = offline }
+                >
                     {
                         !isLoading && isRunByManagers &&
                         <div className = "offline-report">
@@ -93,7 +96,7 @@ class Report extends Component {
 Report.propTypes = {
     auth: PropTypes.object.isRequired,
     report: PropTypes.object.isRequired,
-    onAddCapital: PropTypes.func.isRequired
+    show: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
