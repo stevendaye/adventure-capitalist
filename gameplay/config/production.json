@@ -3,7 +3,7 @@
     "host": {
         "client": "process.env.CLIENT_ORIGIN_HOST || http://localhost:3000",
         "gameplay": "process.env.ADVENTURE_CAPITALIST_HOST || http://localhost:2020",
-        "users": "process.env.USER_MICROSERVICE_HOST || http://localhost:5050"
+        "users": "process.env.USER_MICROSERVICE_HOST || https://adventure-capitalist-users.herokuapp.com"
     },
     "routes": {
         "auth": "/auth",

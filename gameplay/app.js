@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import logger from "morgan"
 import cors from "cors";
 import util from "util"
+import path from "path";
 import config from "config";
 import DBG from "debug";
 import * as handler from "./middlewares/errorHandlers";
@@ -51,6 +52,15 @@ usersRoutes(app);
 businessesRoutes(app);
 managersRoutes(app);
 upgradesRoutes(app);
+
+// Prepare server static assets in production
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.use(handler._404);
 app.use(handler._500);

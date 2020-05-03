@@ -4,7 +4,6 @@
   "description": " User Microservice for the Adventure Capitalist Game",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "SEQUELIZE_CONNECT=sequelize-sqlite.yaml babel-node server.js",
     "server": "cross-env DEBUG=adventure-capitalist-users:* PORT=5050 SEQUELIZE_CONNECT=sequelize-sqlite.yaml nodemon --exec babel-node server.js",
     "user-create": "cross-env DEBUG=adventure-capitalist-users:* PORT=5050 nodemon --exec babel-node scripts/users-create.js",

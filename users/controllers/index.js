@@ -17,11 +17,11 @@ export default {
         res.contentType = "json";
         res.send({
             ressource: "/",
-            found: true,
             production: true,
+            found: true,
             host: "heroku",
             key: uuid(),
-            timestamp: (new Date()).getTime()
+            time: (new Date()).getTime()
         });
         next(false);
     },
