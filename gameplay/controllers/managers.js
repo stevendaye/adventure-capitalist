@@ -1,7 +1,7 @@
 import DBG from "debug";
 import util from "util";
 import config from "config";
-import * as ManagerModel from "../models/managers-sequelize";
+import * as ManagerModel from "../models/managers-mongodb";
 
 const debug = DBG("adventure-capitalist-gameplay:manager-controllers");
 const flush = DBG("adventure-capitalist-gameplay:manager-error");
@@ -17,19 +17,19 @@ export default {
             const userManagers = [];
             managers.map(manager => {
                 userManagers.push({
+                    userid: req.user.id,
                     name: manager.name,
                     title: manager.title,
                     business_type: manager.business_type,
                     role: manager.role,
                     cost: manager.cost,
-                    userid: req.user.id,
                     order: manager.order
                 });
             });
             createdManagers = userManagers.map( async manager =>
-                await ManagerModel.create(manager.name, manager.title,
-                    manager.business_type, manager.role, manager.cost,
-                    manager.userid, manager.order
+                await ManagerModel.create(manager.userid, manager.name,
+                    manager.title, manager.business_type, manager.role,
+                    manager.cost, manager.order
                 )
             );
             debug(`create managers: ${util.inspect(userManagers)}`);

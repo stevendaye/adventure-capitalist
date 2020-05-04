@@ -1,5 +1,8 @@
 {
     "port": "2020",
+    "db": {
+        "mongoURI": "mongodb+srv://steven:api910603Dsa@gameplay-nrara.mongodb.net/test?retryWrites=true&w=majority"
+    },
     "host": {
         "client": "process.env.CLIENT_ORIGIN_HOST || http://localhost:3000",
         "gameplay": "process.env.ADVENTURE_CAPITALIST_HOST || http://localhost:2020",

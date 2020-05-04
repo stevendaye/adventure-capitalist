@@ -28,7 +28,7 @@ class Businesses extends Component {
                                 <div className = "slice slice-1">
                                     {businesses.slice(0, 5).map(business =>
                                         <Business
-                                            key = {business.id}
+                                            key = {business._id}
                                             business = {business}
                                             capital = {this.props.capital}
                                             multiplier = {this.props.multiplier}
@@ -40,7 +40,7 @@ class Businesses extends Component {
                                 <div className = "slice slice-2">
                                     {businesses.slice(5, 10).map(business =>
                                         <Business
-                                            key = {business.id}
+                                            key = {business._id}
                                             business = {business}
                                             capital = {this.props.capital}
                                             multiplier = {this.props.multiplier}

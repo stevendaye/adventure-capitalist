@@ -59,7 +59,7 @@ class Upgrades extends Component {
                                 {
                                     upgrades.map(upgrade =>
                                         <Upgrade
-                                            key = {upgrade.id}
+                                            key = {upgrade._id}
                                             upgrade = {upgrade}
                                             capital = {this.props.capital}
                                             onSubtractCapital = {this.props.onSubtractCapital}

@@ -1,5 +1,6 @@
 [
     {
+        "userid": null,
         "name": "Lemonade Stand",
         "title": "lemonade_stand",
         "has_manager": false,
@@ -13,10 +14,10 @@
         "next_productivity": 1.667,
         "coefficient": 1.07,
         "number_owned": 1,
-        "userid": null,
         "order": 1
     },
     {
+        "userid": null,
         "name": "Newspaper Delivery",
         "title": "newspaper_delivery",
         "has_manager": false,
@@ -30,10 +31,10 @@
         "next_productivity": 0,
         "coefficient": 1.15,
         "number_owned": 0,
-        "userid": null,
         "order": 2
     },
     {
+        "userid": null,
         "name": "Car Wash",
         "title": "car_wash",
         "has_manager": false,
@@ -47,10 +48,10 @@
         "next_productivity": 0,
         "coefficient": 1.14,
         "number_owned": 0,
-        "userid": null,
         "order": 3
     },
     {
+        "userid": null,
         "name": "Pizza Delivery",
         "title": "pizza_delivery",
         "has_manager": false,
@@ -64,10 +65,10 @@
         "next_productivity": 0,
         "coefficient": 1.13,
         "number_owned": 0,
-        "userid": null,
         "order": 4
     },
     {
+        "userid": null,
         "name": "Donut Shop",
         "title": "donut_shop",
         "has_manager": false,
@@ -81,10 +82,10 @@
         "next_productivity": 0,
         "coefficient": 1.12,
         "number_owned": 0,
-        "userid": null,
         "order": 5
     },
     {
+        "userid": null,
         "name": "Shrimp Boat",
         "title": "shrimp_boat",
         "has_manager": false,
@@ -98,10 +99,10 @@
         "next_productivity": 0,
         "coefficient": 1.11,
         "number_owned": 0,
-        "userid": null,
         "order": 6
     },
     {
+        "userid": null,
         "name": "Hockey Team",
         "title": "hockey_team",
         "has_manager": false,
@@ -115,10 +116,10 @@
         "next_productivity": 0,
         "coefficient": 1.10,
         "number_owned": 0,
-        "userid": null,
         "order": 7
     },
     {
+        "userid": null,
         "name": "Movie Studio",
         "title": "movie_studio",
         "has_manager": false,
@@ -132,10 +133,10 @@
         "next_productivity": 0,
         "coefficient": 1.09,
         "number_owned": 0,
-        "userid": null,
         "order": 8
     },
     {
+        "userid": null,
         "name": "Bank",
         "title": "bank",
         "has_manager": false,
@@ -149,10 +150,10 @@
         "next_productivity": 0,
         "coefficient": 1.08,
         "number_owned": 0,
-        "userid": null,
         "order": 9
     },
     {
+        "userid": null,
         "name": "Oil Company",
         "title": "oil_company",
         "has_manager": false,
@@ -166,7 +167,6 @@
         "next_productivity": 0,
         "coefficient": 1.07,
         "number_owned": 0,
-        "userid": null,
         "order": 10
     }
 ]

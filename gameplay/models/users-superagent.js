@@ -14,19 +14,17 @@ const reqUrl = path => {
     return requrl.toString();
 };
 
-async function create(id, name, email, password, avatar, capital, started_business,
-    last_seen, created) {
+async function create(name, email, password, avatar, capital, started_business) {
     let res = await request
         .post(reqUrl(config.get("routes.user.register")))
         .withCredentials()
-        .send({ id, name, email, password, avatar, capital, started_business,
-            last_seen, created
-        })
+        .send({ name, email, password, avatar, capital, started_business })
         .set("Content-Type",  "application/json")
         .set("Accept", "application/json")
         .auth("gc_adcap", "JLOAO217-ACKL-R26A-2SEA-8W2LE76IODS7");
-    debug(`create user: id: ${id}, name: ${name}, email: ${email},
-        password: ${password}, avatar: ${avatar}, created: ${created}`
+    debug(`create user: name: ${name}, email: ${email},
+        password: ${password}, avatar: ${avatar},
+        capital: ${capital}, started_business: ${started_business}`
     );
     return res.body;
 }

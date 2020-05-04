@@ -59,7 +59,7 @@ class Managers extends Component {
                                 {
                                     managers.map(manager =>
                                         <Manager
-                                            key = {manager.id}
+                                            key = {manager._id}
                                             manager = {manager}
                                             capital = {this.props.capital}
                                             onSubtractCapital = {this.props.onSubtractCapital}

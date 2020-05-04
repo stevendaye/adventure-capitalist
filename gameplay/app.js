@@ -7,6 +7,7 @@ import util from "util"
 import path from "path";
 import config from "config";
 import DBG from "debug";
+import connectDB from "./config/db";
 import * as handler from "./middlewares/errorHandlers";
 import logStream from "./middlewares/logs";
 import authRoutes from "./routes/auth";
@@ -18,6 +19,8 @@ import upgradesRoutes from "./routes/upgrades";
 const app = express();
 const server = http.createServer(app);
 const port = normalizePort(process.env.PORT || config.get("port"));
+
+connectDB();
 
 const debug = DBG("adventure-capitalist-gameplay:app-server");
 const flush = DBG("adventure-capitalist-gameplay:app-error");

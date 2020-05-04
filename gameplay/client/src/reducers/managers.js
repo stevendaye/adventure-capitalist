@@ -20,7 +20,7 @@ const applyCreateManagers = (state, payload) => ({
 
 const applyHireManager = (state, payload) => ({
     ...state,
-    managers: state.managers.filter(manager => manager.id !== payload),
+    managers: state.managers.filter(manager => manager._id !== payload),
     isLoading: false
 });
 

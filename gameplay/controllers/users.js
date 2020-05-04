@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import gravatar from "gravatar";
 import config from "config";
 import bcrypt from "bcryptjs";
-import uuid from "uuid/v4";
 import util from "util";
 import DBG from "debug";
 import * as UserModel from "../models/users-superagent";
@@ -22,12 +21,9 @@ export default {
         }
         try {
             const { name, email, password } = req.body;
-            const id = uuid();
             const avatar = gravatar.url(email, { s: "200", r: "pg", d: "mm" });
             const capital = 0;
             const started_business = false;
-            const created = new Date();
-            const last_seen = new Date();
 
             const salt = await bcrypt.genSalt(10);
             const encryptedPassword = await bcrypt.hash(password, salt);
@@ -38,10 +34,10 @@ export default {
                 return res.status(400).json({ errors: [{ message: user.message }]});
             }
 
-            user = await UserModel.create(id, name, email, encryptedPassword, avatar,
-                capital, started_business, last_seen, created);
+            user = await UserModel.create(name, email, encryptedPassword, avatar,
+                capital, started_business);
 
-            const payload = { user: { id: user.id }};
+            const payload = { user: { id: user._id }};
             jwt.sign(payload, config.get("auth.jwtToken"), {expiresIn: 3600}, (err, token) => {
                 if (err) throw err;
                 res.json({ token });

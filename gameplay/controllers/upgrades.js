@@ -1,7 +1,7 @@
 import DBG from "debug";
 import util from "util";
 import config from "config";
-import * as UpgradeModel from "../models/upgrades-sequelize";
+import * as UpgradeModel from "../models/upgrades-mongodb";
 
 const debug = DBG("adventure-capitalist-gameplay:upgrade-controllers");
 const flush = DBG("adventure-capitalist-gameplay:upgrade-error");
@@ -17,19 +17,19 @@ export default {
             const userUpgrades = [];
             upgrades.map(upgrade => {
                 userUpgrades.push({
+                    userid: req.user.id,
                     name: upgrade.name,
                     title: upgrade.title,
                     business_type: upgrade.business_type,
                     profit: upgrade.profit,
                     cost: upgrade.cost,
-                    userid: req.user.id,
                     order: upgrade.order
                 });
             });
             createdUpgrades = userUpgrades.map( async upgrade =>
-                await UpgradeModel.create(upgrade.name, upgrade.title,
-                    upgrade.business_type, upgrade.profit, upgrade.cost,
-                    upgrade.userid, upgrade.order
+                await UpgradeModel.create(upgrade.userid, upgrade.name,
+                    upgrade.title, upgrade.business_type, upgrade.profit,
+                    upgrade.cost, upgrade.order
                 )
             );
             debug(`create upgrades: ${util.inspect(userUpgrades)}`);

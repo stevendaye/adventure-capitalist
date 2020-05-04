@@ -29,7 +29,7 @@ class Upgrade extends Component {
         }));
     }
 
-    onUpgrade(id, business_type, upgrade_cost) {
+    onUpgrade(_id, business_type, upgrade_cost) {
         const { businesses, capital } = this.props;
         const upgradeSoundEffect = document.getElementById("upgradeSoundEffect");
 
@@ -42,7 +42,7 @@ class Upgrade extends Component {
 
             if (capital >= upgrade_cost) {
                 if (business["0"].number_owned >= 1) {
-                    this._isMounted && this.props.onMakeUpgrade(id, business_type);
+                    this._isMounted && this.props.onMakeUpgrade(_id, business_type);
                     this._isMounted && this.props.onSubtractCapital(upgrade_cost);
                     upgradeSoundEffect && upgradeSoundEffect.play();
                 } else {
@@ -59,7 +59,7 @@ class Upgrade extends Component {
     render() {
         const { capital } = this.props;
         const { upgradeTitle } = this.state;
-        const { id, business_type, cost } = this.props.upgrade;
+        const { _id, business_type, cost } = this.props.upgrade;
 
         return (
             <Fragment>
@@ -76,7 +76,7 @@ class Upgrade extends Component {
                             ? buy_btn_orrange
                             : buy_btn_grey
                         }
-                        onClick = { () => {this.onUpgrade(id, business_type, cost) }}
+                        onClick = { () => {this.onUpgrade(_id, business_type, cost) }}
                         width = "145"
                         height = "90"
                         className = "buy-btn"
@@ -101,8 +101,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onMakeUpgrade: (id, business_type) =>
-        dispatch(doMakeUpgradeThunk(id, business_type)),
+    onMakeUpgrade: (_id, business_type) =>
+        dispatch(doMakeUpgradeThunk(_id, business_type)),
     onSetNotification: (message, alert) =>
         dispatch(doSetNotificationsThunk(message, alert))
 });

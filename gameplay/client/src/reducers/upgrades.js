@@ -20,7 +20,7 @@ const applyCreateUpgrades = (state, payload) => ({
 
 const applyMakeUpgrade = (state, payload) => ({
     ...state,
-    upgrades: state.upgrades.filter(upgrade => upgrade.id !== payload),
+    upgrades: state.upgrades.filter(upgrade => upgrade._id !== payload),
     isLoading: false
 });
 

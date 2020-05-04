@@ -1,101 +1,101 @@
 [
     {
+        "userid": null,
         "name": "Cabe Johnson",
         "title": "cabe_johnson",
         "business_type": "Lemonade Stand",
         "role": "Runs Lemonade Stands",
         "cost": 1000.00,
-        "userid": null,
         "order": 1
     },
     {
+        "userid": null,
         "name": "Perry Black",
         "title": "perry_black",
         "business_type": "Newspaper Delivery",
         "role": "Runs Newspaper Deliveries",
         "cost": 15000.00,
-        "userid": null,
         "order": 2
     },
     {
+        "userid": null,
         "name": "W.W. Heisenbird",
         "title": "heisenbird",
         "business_type": "Car Wash",
         "role": "Runs Car Washes",
         "cost": 100000.00,
-        "userid": null,
         "order": 3
     },
     {
+        "userid": null,
         "name": "Mama Sean",
         "title": "mama_sean",
         "business_type": "Pizza Delivery",
         "role": "Runs Pizza Deliveries",
         "cost": 500000.00,
-        "userid": null,
         "order": 4
     },
     {
+        "userid": null,
         "name": "Jim Thorton",
         "title": "jim_thorton",
         "business_type": "Donut Shop",
         "role": "Runs Donut Shops",
         "cost": 1200000.00,
-        "userid": null,
         "order": 5
     },
     {
+        "userid": null,
         "name": "Forest Trump",
         "title": "forest_trump",
         "business_type": "Shrimp Boat",
         "role": "Runs Shrimp Boats",
         "cost": 10000000.00,
-        "userid": null,
         "order": 6
     },
     {
+        "userid": null,
         "name": "Dawn Cheri",
         "title": "dawn_cheri",
         "business_type": "Hockey Team",
         "role": "Runs Hockey Teams",
         "cost": 111111111.00,
-        "userid": null,
         "order": 7
     },
     {
+        "userid": null,
         "name": "Stephanie Speilburger",
         "title": "stephanie_speilburger",
         "business_type": "Movie Studio",
         "role": "Runs Movie Studios",
         "cost": 555555555.00,
-        "userid": null,
         "order": 8
     },
     {
+        "userid": null,
         "name": "The Dark Lord",
         "title": "the_dark_lord",
         "business_type": "Bank",
         "role": "Runs Banks",
         "cost": 10000000000.00,
-        "userid": null,
         "order": 9
     },
     {
+        "userid": null,
         "name": "Derrick Plainview",
         "title": "derrick_plainview",
         "business_type": "Oil Company",
         "role": "Runs Oil Companies",
         "cost": 100000000000.00,
-        "userid": null,
         "order": 10
     },
     {
+        "userid": null,
         "name": "Sully Spike H. Conner",
         "title": "sully_spike",
         "business_type": "Unlocker of EZ Upgrade",
         "role": "Unlocks the EZ Upgrader",
         "cost": null,
-        "userid": null,
         "order": 11
     }
 ]

@@ -1,7 +1,7 @@
 import DBG from "debug";
 import util from "util";
 import config from "config";
-import * as BusinessModel from "../models/businesses-sequelize";
+import * as BusinessModel from "../models/businesses-mongodb";
 import * as UserModel from "../models/users-superagent";
 
 const debug = DBG("adventure-capitalist-gameplay:business-controllers");
@@ -19,6 +19,7 @@ export default {
             const businesses = req.body.businesses;
             businesses.map(business => {
                 userBusinesses.push({
+                    userid: req.user.id,
                     name: business.name,
                     title: business.title,
                     has_manager: business.has_manager,
@@ -32,18 +33,17 @@ export default {
                     next_productivity: business.next_productivity,
                     coefficient: business.coefficient,
                     number_owned: business.number_owned,
-                    userid: req.user.id,
                     order: business.order
                 });;
             });
             
             createdBusinesses = userBusinesses.map( async business =>
                 await BusinessModel.create(
-                    business.name, business.title, business.has_manager,
+                    business.userid, business.name, business.title, business.has_manager,
                     business.initial_cost, business.next_cost, business.was_bought,
                     business.initial_revenue, business.current_revenue, business.initial_time,
                     business.initial_productivity, business.next_productivity,
-                    business.coefficient, business.number_owned, business.userid, business.order
+                    business.coefficient, business.number_owned, business.order
                 )
             );
 

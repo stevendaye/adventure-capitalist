@@ -47,9 +47,9 @@ class Business extends Component {
                 const { business: {
                     has_manager, current_revenue, initial_time, userid
                 } } = this.props;
-                const { user: { id } } = this.props.auth;
+                const { user: { _id } } = this.props.auth;
 
-                if (has_manager && userid === id) {
+                if (has_manager && userid === _id) {
                     this._isMounted && this.onActivateManager(
                         has_manager, current_revenue, initial_time
                     )
@@ -115,12 +115,12 @@ class Business extends Component {
     }
 
     // @desc Buy a buniness
-    onPurchase(e, id, next_cost) {
+    onPurchase(e, _id, next_cost) {
         e.stopPropagation();
         const { capital, multiplier  } = this.props;
 
         if (capital >= next_cost * multiplier) {
-            this.props.onBuyBusiness(id, multiplier);
+            this.props.onBuyBusiness(_id, multiplier);
             this.props.onSubtractCapital((next_cost * multiplier));
         }
     }
@@ -162,7 +162,7 @@ class Business extends Component {
 
         const { foregroundTitle } = this.state;
         const { capital, multiplier, business: {
-            id, has_manager, current_revenue, next_cost, initial_time, number_owned
+            _id, has_manager, current_revenue, next_cost, initial_time, number_owned
         }  } = this.props;
 
 
@@ -202,7 +202,7 @@ class Business extends Component {
 
                         <div
                             className = "next-cost text-center"
-                            onClick = { (e) => { this.onPurchase(e, id, next_cost) } }
+                            onClick = { (e) => { this.onPurchase(e, _id, next_cost) } }
                             style = {{
                                 backgroundColor: (capital >= multiplier * next_cost)
                                 ? "#f7931e" : "#e6e9f8",
@@ -249,8 +249,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispacthToProps = dispatch => ({
-    onBuyBusiness: (id, multiplier) =>
-        dispatch(doBuyBusinessThunk(id, multiplier))
+    onBuyBusiness: (_id, multiplier) =>
+        dispatch(doBuyBusinessThunk(_id, multiplier))
 });
 
 const ConnectedBusiness = connect(mapStateToProps, mapDispacthToProps)(Business);

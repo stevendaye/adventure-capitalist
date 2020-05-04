@@ -33,7 +33,7 @@ class Manager extends Component {
         this._isMounted = false;
     }
 
-    onHireManager(id, business_type, manager_cost) {
+    onHireManager(_id, business_type, manager_cost) {
         const { capital, businesses} = this.props;
         const managerSoundEffect = document.getElementById("managerSoundEffect");
 
@@ -45,7 +45,7 @@ class Manager extends Component {
 
             if (capital >= manager_cost) {
                 if (business["0"].number_owned >= 1) {
-                    this._isMounted && this.props.onDoHireManager(id, business_type);
+                    this._isMounted && this.props.onDoHireManager(_id, business_type);
                     this._isMounted && this.props.onSubtractCapital(manager_cost);
                     managerSoundEffect && managerSoundEffect.play();
                 } else {
@@ -61,7 +61,7 @@ class Manager extends Component {
 
     render() {
         const { managerTitle } = this.state;
-        const { id, business_type, cost } = this.props.manager;
+        const { _id, business_type, cost } = this.props.manager;
         const { capital } = this.props
 
         return (
@@ -79,7 +79,7 @@ class Manager extends Component {
                             ? hire_btn_blue
                             : hire_btn_grey
                         }
-                        onClick = { () => {this.onHireManager(id, business_type, cost) }}
+                        onClick = { () => {this.onHireManager(_id, business_type, cost) }}
                         width = "145"
                         height = "90"
                         className = "hire-btn"
@@ -106,8 +106,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onDoHireManager: (id, business_type) =>
-        dispatch(doHireManagerThunk(id, business_type)),
+    onDoHireManager: (_id, business_type) =>
+        dispatch(doHireManagerThunk(_id, business_type)),
     onSetNotification: (message, alert) =>
         dispatch(doSetNotificationsThunk(message, alert))
 });
