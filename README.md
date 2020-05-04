@@ -236,7 +236,7 @@ The _**client**_ directory is where lays our frontend. It laverages React as our
  - _**assets**_, as the name indicates, this directory handles all our public files. They are fonts, gaphics and background tones.
 
 
-## State Of The Sim-Gane Features
+## State Of The Sim-Game Features
 All features have been delivered. They include:
  - Buy a business
  - Upgrade a business
