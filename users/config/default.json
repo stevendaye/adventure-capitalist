@@ -1,5 +1,8 @@
 {
   "port": "5050",
+  "db": {
+    "mongoURI": "mongodb+srv://steven:dev910603Dsa@users-nldwa.mongodb.net/test?retryWrites=true&w=majority"
+  },
   "routes": {
     "index": "/",
     "user": {

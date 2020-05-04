@@ -2,7 +2,7 @@ import util from "util";
 import config from "config";
 import uuid from "uuid/v4";
 import DBG from "debug";
-import * as UserModel from "../models/users-sequelize";
+import * as UserModel from "../models/users-mongodb";
 
 const debug = DBG("adventure-capitalist-users:controllers-index");
 const flush = DBG("adventure-capitalist-users:controllers-error");
@@ -31,9 +31,8 @@ export default {
     async register(req, res, next) {
         try {
             let user = await UserModel.create(
-                req.params.id, req.params.name, req.params.email, req.params.password,
-                req.params.avatar, req.params.capital, req.params.started_business,
-                req.params.last_seen, req.params.created
+                req.params.name, req.params.email, req.params.password,
+                req.params.avatar, req.params.capital, req.params.started_business
             );
             debug(`register user: ${util.inspect(user)}`);
             res.send(user);

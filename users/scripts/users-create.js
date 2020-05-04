@@ -5,7 +5,6 @@ import bcrypt from "bcrypt";
 import gravatar from "gravatar";
 import config from "config";
 import util from "util";
-import uuid from "uuid/v4";
 import DBG from "debug";
 
 const debug = DBG("adventure-capitalist-users:create-user");
@@ -23,10 +22,8 @@ const client = restify.createJSONClient({
 client.basicAuth("gc_adcap", "JLOAO217-ACKL-R26A-2SEA-8W2LE76IODS7");
 
 const avatar = gravatar.url("dev.stevendaye@yahoo.com", { s: 200, r: "pg", d: "mm" });
-const created = new Date();
-const last_seen = new Date();
 const password = "01stevendaye01";
-let capital = 1075;
+let capital = 798971456789283.61875;
 let started_business = false;
 
 async function encrypt() {
@@ -41,8 +38,8 @@ async function encrypt() {
 
 (async () => {
     client.post(config.get("routes.user.register"), {
-        id: uuid(), name: "Steven Daye", email: "dev.stevendaye@yahoo.com",
-        password: await encrypt(), avatar, capital, started_business, last_seen, created
+        name: "Steven Daye", email: "dev.stevendaye@yahoo.com",
+        password: await encrypt(), avatar, capital, started_business
     }, (err, req, res, obj) => {
         err
         ? flush(`create user: User registration failed -- \n Error: ${util.inspect(err)}`)

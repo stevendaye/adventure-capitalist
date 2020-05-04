@@ -1,6 +1,7 @@
 import restify from "restify";
 import DBG from "debug";
 import util from "util";
+import connectDB from "./config/db";
 import usersRoutes from "./routes";
 
 const debug = DBG("adventure-capitalist-users:server-service");
@@ -13,6 +14,8 @@ const apiKeys = [{
     user: "gc_adcap",
     key: "JLOAO217-ACKL-R26A-2SEA-8W2LE76IODS7"
 }];
+
+connectDB();
 
 // @desc Check for authorization credentials in the request header
 const check = (req, res, next) => {
