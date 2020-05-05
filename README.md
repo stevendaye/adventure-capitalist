@@ -5,7 +5,7 @@ In order to automate this, you can hire a manager who can run the business for y
 
 The version of the game implemented here is a clone of the Adventure Capitalist game. So, this is a basic gameplay with upgrading businesses and hiring managers. The game can be accessed online at https://adventure-capitalist-game.herokuapp.com, while the codebase can also be accessed at https://github.com/stevendaye/adventure-capitalist.
 
-![Alt text](gameplay/client/src/assets/vendor/local/adcap_welcome_page.jpg "Adventure Capitalist - Welcome Page")
+![Alt text](gameplay/client/src/assets/vendor/local/adcap_welcome_page.png "Adventure Capitalist - Welcome Page")
 
 ## The Problem
 The sim-game requires that a user wins capital after purchasing a business. But to gain the capital, he must first click the busines and wait for some time, then he can try again. He must have the choice to choose from many business types. However, to purchase a business, he must have the required capital for the business cost. The action of clicking must be done repeatedly to gain capital. To automate this, the user will have to hire a manager that will automatically perform the clicking action.
