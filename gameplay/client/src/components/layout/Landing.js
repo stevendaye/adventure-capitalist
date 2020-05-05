@@ -13,12 +13,12 @@ const Landing = ({ isAuthenticated }) => {
             <section className = "landing">
                 <div className = "landing-inner">
                     <h1 className = "large">
-                        Good fortunes await incredible adventurers
+                        Good fortunes do await incredible adventurers
                     </h1>
                     <p className = "small my-1">
                         Get started with a business and experience the amazing adventure of
                         being a capitalist. Buy businesses, upgrade them and hire managers
-                        to run them for you. Are you in?
+                        to run them for you.
                     </p>
                     <span className = "btn btn-primary">
                         <Link to = "/gameplay">
