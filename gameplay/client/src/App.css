@@ -262,8 +262,8 @@ footer {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 1075px;
-  height: 575px;
+  width: 1100px;
+  height: 600px;
   border-radius: 7px;
   background-color: var(--light-color);
   overflow: hidden;
@@ -469,7 +469,7 @@ form input[type="text"] {
 
 /* Register */
 .auth-register {
-  height: 100vh;
+  height: 100%;
   background: url('./assets/vendor/local/helpers/register_helper.png') no-repeat left;
 }
 
@@ -483,7 +483,7 @@ form input[type="text"] {
 
 /* Login */
 .auth-login {
-  height: 100vh;
+  height: 100%;
   background: url('./assets/vendor/local/helpers/login_helper.png') no-repeat left;
 }
 
@@ -497,7 +497,7 @@ form input[type="text"] {
 
 /* Help */
 .info-help {
-  height: 100vh;
+  height: 100%;
   border: .2px solid var(--light-color);
   background: url('./assets/vendor/local/helpers/help_helper.png') no-repeat right;
   margin: 0 3rem;
@@ -864,7 +864,7 @@ form input[type="text"] {
   display: none;
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
   background: rgba(0, 0, 0, 0.9);
@@ -880,7 +880,7 @@ form input[type="text"] {
   padding: 0;
   margin: 0;
   background: url('./assets/vendor/local/helpers/welcome_back_helper.png') no-repeat left;
-  height: 100vh;
+  height: 100%;
   font-size: 1.5rem;
 }
 
@@ -896,7 +896,7 @@ form input[type="text"] {
   position: absolute;
   right: 0;
   background: #8c8Bba;
-  height: 100vh;
+  height: 100%;
   width: 525px;
   padding: 3rem;
   margin: 0;
@@ -905,7 +905,7 @@ form input[type="text"] {
 .close-report-btn {
   position: absolute;
   right: 45px;
-  bottom: 125px;
+  bottom: 150px;
   border: none;
   background: #e6e9f8;
   padding: .2rem 1rem .5rem 1rem;
@@ -918,7 +918,7 @@ form input[type="text"] {
 .close-report-btn:hover {
   position: absolute;
   right: 40px;
-  bottom: 125px;
+  bottom: 150px;
   border: none;
   background: var(--primary-color);
   padding: .2rem 1rem .5rem 1rem;

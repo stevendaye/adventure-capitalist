@@ -17,7 +17,11 @@ const UserSchema = new Schema({
         required: true
     },
     avatar: String,
-    capital: Number,
+    capital: {
+        type: Number,
+        default: 0,
+        required: true
+    },
     started_business: Boolean,
     last_seen: {
         type: Date,
